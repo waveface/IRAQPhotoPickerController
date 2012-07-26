@@ -24,6 +24,7 @@
 @synthesize assetsLibrary = _assetsLibrary;
 @synthesize assetsGroupType = _assetsGroupType;
 @synthesize assetGroups = _assetGroups;
+@synthesize delegate = _delegate;
 
 - (id) initWithAssetsLibrary:(ALAssetsLibrary *)library groupType:(ALAssetsGroupType)groupType {
 
