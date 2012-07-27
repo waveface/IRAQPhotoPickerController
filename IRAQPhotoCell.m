@@ -130,7 +130,16 @@
 	selectionOverlay.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.65f];
 	selectionOverlay.userInteractionEnabled = NO;
 	selectionOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    
+    CGSize checkmakrSize = CGSizeMake(28.f, 28.f);
+    CGRect bottomRight = CGRectOffset(CGRectMake(rect.origin.x + rect.size.width - checkmakrSize.width, rect.origin.y + rect.size.height - checkmakrSize.height, checkmakrSize.width, checkmakrSize.height), -1.5f, -1.5f);
+    UIImageView *checkmarkView = [[UIImageView alloc] initWithFrame:bottomRight];
+    checkmarkView.image = [UIImage imageNamed:@"IRAQ-Checkmark.png"];
+    
+    [selectionOverlay addSubview:checkmarkView];
+    
 	selectionOverlay.hidden = !self.selected;
+    
 	
 	return selectionOverlay;
 
