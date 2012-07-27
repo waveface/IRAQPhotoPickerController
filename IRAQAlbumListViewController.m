@@ -80,8 +80,13 @@
 	
 	[self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
 	
-		if (group)
-			[newAssets addObject:group];
+		if (group) {
+			if ([[group valueForProperty:ALAssetsGroupPropertyType] intValue] == ALAssetsGroupSavedPhotos) {
+				[newAssets insertObject:group atIndex:0];
+			} else {
+				[newAssets addObject:group];
+			}
+		}
 		
 		[self willChangeValueForKey:@"assetGroups"];
 		_assetGroups = [newAssets copy];
