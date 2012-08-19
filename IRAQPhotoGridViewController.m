@@ -60,7 +60,7 @@
 		}];
 	
 		[self willChangeValueForKey:@"assets"];
-		_assets = [allAssets copy];
+		_assets = [[[allAssets reverseObjectEnumerator] allObjects] copy];
 		[self didChangeValueForKey:@"assets"];
 	
 	}
