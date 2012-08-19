@@ -60,6 +60,7 @@
 		}];
 	
 		[self willChangeValueForKey:@"assets"];
+		/* reverse the order of assets */
 		_assets = [[[allAssets reverseObjectEnumerator] allObjects] copy];
 		[self didChangeValueForKey:@"assets"];
 	
