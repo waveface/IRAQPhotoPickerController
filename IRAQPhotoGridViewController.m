@@ -60,8 +60,7 @@
 		}];
 	
 		[self willChangeValueForKey:@"assets"];
-		/* reverse the order of assets */
-		_assets = [[[allAssets reverseObjectEnumerator] allObjects] copy];
+		_assets = [allAssets copy];
 		[self didChangeValueForKey:@"assets"];
 	
 	}
@@ -101,6 +100,7 @@
 	gv.rightContentInset = 1.0f;
 	gv.gridHeaderView = [[UIView alloc] initWithFrame:(CGRect){ CGPointZero, (CGSize){ 4.0f, 2.0f }}];
 	gv.gridFooterView = [[UIView alloc] initWithFrame:(CGRect){ CGPointZero, (CGSize){ 4.0f, 2.0f }}];
+	
 
 }
 
@@ -129,6 +129,7 @@
 	}];
 	
 	[self.delegate photoGridViewController:self didUpdateSelection:nil];
+	[self.gridView scrollToItemAtIndex:([self.assets count] - 1) atScrollPosition:AQGridViewScrollPositionBottom animated:NO];
 	
 }
 
